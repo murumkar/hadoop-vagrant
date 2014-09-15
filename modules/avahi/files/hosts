@@ -1,0 +1,4 @@
+127.0.0.1       localhost
+192.100.100.10   masternode.local  masternode
+192.100.100.11   datanode1.local   datanode1
+192.100.100.12   datanode2.local   datanode2

@@ -11,25 +11,33 @@ Then simply clone this repository, change into the directory and bring the clust
 
     $ vagrant up
 
-This will set up 3 machines - `master`, `hadoop1` and `hadoop2`. Each of them will have two CPUs and 512 MB of RAM. If this is too much for your machine, adjust the `Vagrantfile`. It will also start the cluster for you.
+This will set up 3 machines - `masternode`, `datanode1` and `datanode2`. Each of them will have two CPUs and 512 MB of RAM. If this is too much for your machine, adjust the `Vagrantfile`. It will also start the cluster for you.
 
 The machines will be provisioned using [Puppet](http://puppetlabs.com/). All of them will have hadoop installed, ssh will be configured and local name resolution also works.
+
+### Starting the cluster first time
+
+Once all machines are up and provisioned, the cluster can be started. Log into the master, format hdfs and start the cluster.
+ $ vagrant ssh masternode
+ $ sudo bash
+ $ (root@masternode) su - hdfs -c 'echo "Y" | hdfs namenode -format' (Note that this has to be done ONLY the first time)
+ $ (root@masternode) /usr/lib/hadoop/sbin/start-all.sh
 
 ### Restarting the cluster
 
 If you want to shut down your cluster, but want to keep it around for later use, shut down all the services and tell
 vagrant to stop the machines like this:
 
-     $ vagrant ssh master
-     $ (master) sudo /usr/lib/hadoop/sbin/stop-all.sh
+     $ vagrant ssh masternode
+     $ (masternode) sudo /usr/lib/hadoop/sbin/stop-all.sh
      $ exit or Ctrl-D
      $ vagrant halt
 
-When you want to use your cluster again, simply do this:
+When you want to use your cluster again, run:
 
      $ vagrant up
-     $ vagrant ssh master
-     $ (master) sudo /usr/lib/hadoop/sbin/start-all.sh
+     $ vagrant ssh masternode
+     $ (masternode) sudo /usr/lib/hadoop/sbin/start-all.sh
      
 
 ### Destroying the cluster
@@ -45,16 +53,16 @@ If you don't need the cluster anymore and want to get your disk-space back do th
 
 You can access all services of the cluster with your web-browser.
 
-* NameNode: http://master.local:50070/dfshealth.jsp
-* Resource Manager: http://master.local:8088/cluster
-* Job History Server: http://master.local:19888/jobhistory
+* NameNode: http://masternode.local:50070/dfshealth.jsp
+* Resource Manager: http://masternode.local:8088/cluster
+* Job History Server: http://masternode.local:19888/jobhistory
 
 ### Command line
 
 To interact with the cluster on the command line, log into the master and use the hadoop command.
 
-    $ vagrant ssh master
-    $ (master) hadoop fs -ls /
+    $ vagrant ssh masternode
+    $ (masternode) hadoop fs -ls /
     $ ...
 
 ### Storage locations
