@@ -9,7 +9,7 @@ First install both [Virtual Box](http://virtualbox.org) and [Vagrant](http://vag
 
 Then simply clone this repository, change into the directory and bring the cluster up.
 
-    $ vagrant up
+     $ vagrant up
 
 This will set up 3 machines - `masternode`, `datanode1` and `datanode2`. Each of them will have two CPUs and 512 MB of RAM. If this is too much for your machine, adjust the `Vagrantfile`. It will also start the cluster for you.
 
@@ -18,10 +18,10 @@ The machines will be provisioned using [Puppet](http://puppetlabs.com/). All of 
 ### Starting the cluster first time
 
 Once all machines are up and provisioned, the cluster can be started. Log into the master, format hdfs and start the cluster.
- $ vagrant ssh masternode
- $ sudo bash
- $ (root@masternode) su - hdfs -c 'echo "Y" | hdfs namenode -format' (Note that this has to be done ONLY the first time)
- $ (root@masternode) /usr/lib/hadoop/sbin/start-all.sh
+    $ vagrant ssh masternode
+    $ sudo bash
+    $ (root@masternode) su - hdfs -c 'echo "Y" | hdfs namenode -format' (Note that this has to be done ONLY the first time)
+    $ (root@masternode) /usr/lib/hadoop/sbin/start-all.sh
 
 ### Restarting the cluster
 
