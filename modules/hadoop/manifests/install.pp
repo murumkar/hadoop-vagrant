@@ -36,7 +36,7 @@ class install {
     logoutput => true,
     path => "/bin",
     unless => "rpm -qa |grep jdk-1.7.0_67",
-    require => File["/tmp/jdk-7u67-linux-x64.rpm"],
+    require => Exec["download JDK"],
   }
     
   exec { "set java":
