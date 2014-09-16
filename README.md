@@ -18,6 +18,7 @@ The machines will be provisioned using [Puppet](http://puppetlabs.com/). All of 
 ### Starting the cluster first time
 
 Once all machines are up and provisioned, the cluster can be started. Log into the master, format hdfs and start the cluster.
+
     $ vagrant ssh masternode
     $ sudo bash
     $ (root@masternode) su - hdfs -c 'echo "Y" | hdfs namenode -format' (Note that this has to be done ONLY the first time)
