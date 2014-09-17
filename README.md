@@ -7,7 +7,7 @@ Clone this project to create a 2 node [HDP 2.0](http://hortonworks.com/hdp/) clu
 
 First install both [Virtual Box](http://virtualbox.org) and [Vagrant](http://vagrantup.com/) for your platform.
 
-Then simply clone this repository, change into the directory and bring the cluster up.
+Then simply clone this repository, change into the directory, issue "chmod 777 data" and bring the cluster up.
 
      $ vagrant up
 
