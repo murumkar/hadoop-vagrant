@@ -11,7 +11,7 @@ Then simply clone this repository, change into the directory, issue "chmod 777 d
 
      $ vagrant up
 
-This will set up 3 machines - `masternode`, `datanode1` and `datanode2`. Each of them will have two CPUs and 512 MB of RAM. If this is too much for your machine, adjust the `Vagrantfile`. It will also start the cluster for you.
+This will set up 3 machines - `masternode`, `datanode1` and `datanode2`. Each of them will have two CPUs and 512 MB of RAM. If this is too much for your machine, adjust the `Vagrantfile`. 
 
 The machines will be provisioned using [Puppet](http://puppetlabs.com/). All of them will have hadoop installed, ssh will be configured and local name resolution also works.
 
